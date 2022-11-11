@@ -6,6 +6,7 @@ LABEL maintainer="Krushi Raj Tula <krushiraj123@gmail.com>"
 # Install the dependencies
 RUN apt-get update
 RUN apt-get install \
+    ca-certificates \
     unzip \
     wget -y
 
@@ -21,12 +22,6 @@ RUN unzip pocketbase*.zip -d /pocketbase
 WORKDIR /pocketbase
 RUN chmod +x ./pocketbase
 RUN rm /pocketbase*.zip
-RUN apk add --no-cache \
-    ca-certificates \
-    unzip \
-    wget \
-    zip \
-    zlib-dev
 
 # Notify Docker that the container wants to expose a port.
 EXPOSE 8090
