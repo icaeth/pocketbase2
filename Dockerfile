@@ -21,6 +21,12 @@ RUN unzip pocketbase*.zip -d /pocketbase
 WORKDIR /pocketbase
 RUN chmod +x ./pocketbase
 RUN rm /pocketbase*.zip
+RUN apk add --no-cache \
+    ca-certificates \
+    unzip \
+    wget \
+    zip \
+    zlib-dev
 
 # Notify Docker that the container wants to expose a port.
 EXPOSE 8090
